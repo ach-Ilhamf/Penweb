@@ -35,6 +35,6 @@ drive.mount('/content/drive')
 
 csv_path = '/content/drive/My Drive/Penweb/data_berita.csv'
 df = pd.read_csv(csv_path)
-df
+df.head(10)
 -------------------
 
