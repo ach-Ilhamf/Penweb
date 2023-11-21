@@ -170,7 +170,20 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Crawling_Berita_Kompas.html">Crawling Berita Kompas</a></li>
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Meringkas Berita Kompas</a></li>
+
+
+
+
+
+
+
+
+
+
+
 </ul>
 
     </div>
@@ -341,7 +354,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -357,6 +372,50 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Meringkas Berita Kompas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#library-yang-dibutuhakan">1. Library Yang Dibutuhakan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data-berita-kompas">2. Import Data Berita Kompas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengakses-berita">3. Mengakses Berita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">4. Preprocessing Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kalimat">5. Ekstraksi kalimat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">6. TF-IDF</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-tanpa-preprocessing">6.1. TF-IDF tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-dengan-preprocessing">6.2. TF-IDF dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">7. Cosine Similarity</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity-tanpa-preprocessing">7.1. Cosine Similarity tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity-dengan-preprocessing">7.2. Cosine Similarity dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">8. Graph</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-tanpa-preprocessing">8.1. Graph tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-dengan-preprocessing">8.2. Graph dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">9. Closeness Centrality</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality-tanpa-preprocessing">9.1. Closeness centrality tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality-dengan-preprocessing">9.2. Closeness centrality dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#page-rank">10. Page Rank</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-rank-tanpa-preprocessing">10.1. Page rank tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-rank-dengan-preprocessing">10.2. Page rank dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eigen-vector">11. Eigen Vector</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigen-vector-tanpa-preprocessing">11.1. Eigen Vector tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigen-vector-dengan-preprocessing">11.2. Eigen Vector dengan preprocessing</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -368,7 +427,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="meringkas-berita-kompas">
 <h1>Meringkas Berita Kompas<a class="headerlink" href="#meringkas-berita-kompas" title="Permalink to this heading">#</a></h1>
-<p>#1. Library Yang Dibutuhakan</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="library-yang-dibutuhakan">
+<h1>1. Library Yang Dibutuhakan<a class="headerlink" href="#library-yang-dibutuhakan" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -408,7 +469,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>#2. Import Data Berita Kompas</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-data-berita-kompas">
+<h1>2. Import Data Berita Kompas<a class="headerlink" href="#import-data-berita-kompas" title="Permalink to this heading">#</a></h1>
 <p>Data yang digunakan merupakan data berita kompas yang sudah dicrawling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -462,7 +525,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>#3. Mengakses Berita</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mengakses-berita">
+<h1>3. Mengakses Berita<a class="headerlink" href="#mengakses-berita" title="Permalink to this heading">#</a></h1>
 <p>Berita yang akan diproses hanya satu berita saja. Berita yang diambil merupakan berita pada baris indeks 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -471,7 +536,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>#4. Preprocessing Data</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preprocessing-data">
+<h1>4. Preprocessing Data<a class="headerlink" href="#preprocessing-data" title="Permalink to this heading">#</a></h1>
 <p>Proses preprocessing bertujuan untuk membersihkan dan mempersiapkan data agar sesuai untuk analisis selanjutnya. Dalam preprocessing untuk data berita kompas menggunakan beberapa proses yaitu mengahapus angka dari data, menghilangkan karakter non-alphanumerik kecuali spasi dan titik, dan menghapus kata-kata umum (stopwords). Proses menghapus angka dan menghilangkan karakter menggunakan library re (Regular Expressions). Library Re digunakan untuk melakukan operasi penggantian teks menggunakan ekspresi reguler. Proses stopwords menggunakan library nltk. Library nltk menyediakan berbagai kamus stopwords untuk beberapa bahasa, termasuk bahasa Indonesia.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -498,7 +565,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>#5. Ekstraksi kalimat</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ekstraksi-kalimat">
+<h1>5. Ekstraksi kalimat<a class="headerlink" href="#ekstraksi-kalimat" title="Permalink to this heading">#</a></h1>
 <p>Ekstraksi kalimat adalah proses mengidentifikasi dan memisahkan kalimat-kalimat dari suatu teks atau dokumen. Tujuan utama dari ekstraksi kalimat adalah untuk memecah teks menjadi unit-unit kalimat yang lebih kecil. Library nltk dengan modul sent_tokenize dapat digunakan untuk ekstraksi kalimat. Disini digunakan dua kali ekstraksi kalimat, untuk variabel kalimat digunakan untuk ekstraksi kalimat yang tidak dilakukan preprocessing. Sedangkan variabel kalimat_preprocessing digunakan untuk ekstraksi kalimat yang sudah dilakukan preprocessing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -508,7 +577,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>#6. TF-IDF</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tf-idf">
+<h1>6. TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h1>
 <p>TF-IDF (Term Frequency-Inverse Document Frequency) adalah metode pengukuran yang digunakan untuk menilai seberapa penting suatu kata dalam suatu dokumen jika dibandingkan dengan keseleruhan dokumen. Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut memiliki relevansi yang lebih besar terhadap dokumen tersebut.
 Berikut rumus-rumus untuk menghasilkan TF-IDF :</p>
 <ol class="arabic simple">
@@ -531,7 +602,8 @@ $<span class="math notranslate nohighlight">\( \mathrm{TF\text{-}IDF}(t, d, D) =
 Keterangan :
 Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dalam suatu dokumen.</p></li>
 </ol>
-<p>##6.1. TF-IDF tanpa preprocessing</p>
+<section id="tf-idf-tanpa-preprocessing">
+<h2>6.1. TF-IDF tanpa preprocessing<a class="headerlink" href="#tf-idf-tanpa-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
@@ -1043,7 +1115,9 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
   </div>
 </div></div>
 </div>
-<p>##6.2. TF-IDF dengan preprocessing</p>
+</section>
+<section id="tf-idf-dengan-preprocessing">
+<h2>6.2. TF-IDF dengan preprocessing<a class="headerlink" href="#tf-idf-dengan-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
@@ -1555,7 +1629,10 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
   </div>
 </div></div>
 </div>
-<p>#7. Cosine Similarity</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cosine-similarity">
+<h1>7. Cosine Similarity<a class="headerlink" href="#cosine-similarity" title="Permalink to this heading">#</a></h1>
 <p>Cosine Similarity adalah metode untuk mengukur sejauh mana dua dokumen atau kalimat mirip satu sama lain. Metode digunakan untuk mengevaluasi seberapa serupa dua dokumen atau kalimat berdasarkan representasi vektor kata-kata mereka.
 Langkah-langkah untuk menghitung Cosine Similarity antara dua vektor (A dan B) :</p>
 <ol class="arabic simple">
@@ -1586,7 +1663,8 @@ Keterangan :</p></li>
 <li><p>A dan B = vector.</p></li>
 <li><p>||A|| dan ||B|| adalah panjang vector  dari vektor A dan B.</p></li>
 </ul>
-<p>##7.1 Cosine Similarity tanpa preprocessing</p>
+<section id="cosine-similarity-tanpa-preprocessing">
+<h2>7.1. Cosine Similarity tanpa preprocessing<a class="headerlink" href="#cosine-similarity-tanpa-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung cosine similarity antara semua pasangan kalimat</span>
@@ -1977,7 +2055,9 @@ Keterangan :</p></li>
   </div>
 </div></div>
 </div>
-<p>##7.1 Cosine Similarity dengan preprocessing</p>
+</section>
+<section id="cosine-similarity-dengan-preprocessing">
+<h2>7.2. Cosine Similarity dengan preprocessing<a class="headerlink" href="#cosine-similarity-dengan-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung cosine similarity antara semua pasangan kalimat</span>
@@ -2368,7 +2448,10 @@ Keterangan :</p></li>
   </div>
 </div></div>
 </div>
-<p>#8. Graph</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="graph">
+<h1>8. Graph<a class="headerlink" href="#graph" title="Permalink to this heading">#</a></h1>
 <p>Graph bisa dibuat menggunakan library NetworkX untuk membuat dan memvisualisasikan grafik berbentuk jaringan (network graph) berdasarkan Cosine Similarity.
 Langkah-langkah membuat graph :</p>
 <ol class="arabic simple">
@@ -2382,7 +2465,8 @@ Menghitung posisi node-node dalam tata letak lingkaran. Label node dan edge disi
 <li><p>Menampilkan Graf
 Graf yang telah dibuat dan diformat visualnya ditampilkan menggunakan plt.show().</p></li>
 </ol>
-<p>##8.1. Graph tanpa preprocessing</p>
+<section id="graph-tanpa-preprocessing">
+<h2>8.1. Graph tanpa preprocessing<a class="headerlink" href="#graph-tanpa-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
@@ -2427,7 +2511,9 @@ Graf yang telah dibuat dan diformat visualnya ditampilkan menggunakan plt.show()
 <img alt="_images/a3bd3a7fda902caaf518c55604bf9d59b672ab806100ae7697a6136e1aa06b68.png" src="_images/a3bd3a7fda902caaf518c55604bf9d59b672ab806100ae7697a6136e1aa06b68.png" />
 </div>
 </div>
-<p>##8.2. Graph dengan preprocessing</p>
+</section>
+<section id="graph-dengan-preprocessing">
+<h2>8.2. Graph dengan preprocessing<a class="headerlink" href="#graph-dengan-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
@@ -2472,7 +2558,10 @@ Graf yang telah dibuat dan diformat visualnya ditampilkan menggunakan plt.show()
 <img alt="_images/4e30dd3e600494a02db020ceb0267d6a071a18a395801c8e10c539b58c721857.png" src="_images/4e30dd3e600494a02db020ceb0267d6a071a18a395801c8e10c539b58c721857.png" />
 </div>
 </div>
-<p>#9. Closeness Centrality</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="closeness-centrality">
+<h1>9. Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Permalink to this heading">#</a></h1>
 <p>Closeness Centrality adalah suatu metriks yang mengukur seberapa dekat suatu node dengan semua node lainnya dalam suatu graph. Node dengan closeness centrality yang tinggi dianggap sebagai node yang memiliki akses yang lebih cepat atau lebih efisien ke seluruh bagian jaringan graph. Rumus Closeness Centrality untuk suatu node v dalam sebuah graph terarah atau tidak terarah :
 $<span class="math notranslate nohighlight">\( \text{C}(v) = \sum_{u} \frac{1}{d(v, u)} \)</span>$
 Keterangan :</p>
@@ -2482,7 +2571,8 @@ Keterangan :</p>
 <li><p>$<span class="math notranslate nohighlight">\( \sum_{u} d(v,u) \)</span>$ = jumlah panjang jalur terpendek dari node vv ke semua node lain dalam jaringan.</p></li>
 </ul>
 <p>Closeness centrality berkisar antara 0 hingga 1, di mana nilai yang lebih tinggi menunjukkan bahwa node tersebut lebih dekat dengan seluruh jaringan.</p>
-<p>##9.1. Closeness centrality tanpa preprocessing</p>
+<section id="closeness-centrality-tanpa-preprocessing">
+<h2>9.1. Closeness centrality tanpa preprocessing<a class="headerlink" href="#closeness-centrality-tanpa-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung closeness centrality</span>
@@ -2810,7 +2900,9 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
 </div>
 </div>
 </div>
-<p>##9.2. Closeness centrality dengan preprocessing</p>
+</section>
+<section id="closeness-centrality-dengan-preprocessing">
+<h2>9.2. Closeness centrality dengan preprocessing<a class="headerlink" href="#closeness-centrality-dengan-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung closeness centrality</span>
@@ -3138,7 +3230,10 @@ Node Node Preprocessing 2: Ganjar menuturkan, masyarakat seharusnya mendapat keb
 </div>
 </div>
 </div>
-<p>#10. Page Rank</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="page-rank">
+<h1>10. Page Rank<a class="headerlink" href="#page-rank" title="Permalink to this heading">#</a></h1>
 <p>PageRank adalah suatu metriks dalam yang digunakan untuk menilai pentingnya suatu node dalam suatu graph. Jika N adalah jumlah halaman dalam graf, d adalah faktor damping (0,85), dan M adalah matriks transfer yang mencerminkan tautan antar-halaman, maka rumus PageRank dalam bentuk matriks dapat dituliskan sebagai berikut: :
 $<span class="math notranslate nohighlight">\( \text{PR} = (1 - d) \cdot v + d \cdot \text{MPR} \)</span>$</p>
 <p>Keterangan :</p>
@@ -3147,7 +3242,8 @@ $<span class="math notranslate nohighlight">\( \text{PR} = (1 - d) \cdot v + d \
 <li><p>v = vektor kolom yang berisi skor yang setara untuk setiap halaman.</p></li>
 <li><p>M =  matriks transfer yang mencerminkan tautan antar-halaman.</p></li>
 </ul>
-<p>##10.1. Page rank tanpa preprocessing</p>
+<section id="page-rank-tanpa-preprocessing">
+<h2>10.1. Page rank tanpa preprocessing<a class="headerlink" href="#page-rank-tanpa-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung closeness centrality</span>
@@ -3475,7 +3571,9 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
 </div>
 </div>
 </div>
-<p>##10.2. Page rank dengan preprocessing</p>
+</section>
+<section id="page-rank-dengan-preprocessing">
+<h2>10.2. Page rank dengan preprocessing<a class="headerlink" href="#page-rank-dengan-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung closeness centrality</span>
@@ -3803,7 +3901,10 @@ Node 7: &quot;Tapi percayalah, air yang mengalir itu dia akan mengikuti arah bat
 </div>
 </div>
 </div>
-<p>#11. Eigen Vector</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eigen-vector">
+<h1>11. Eigen Vector<a class="headerlink" href="#eigen-vector" title="Permalink to this heading">#</a></h1>
 <p>Eigen vector pada dasarnya adalah vektor yang tidak mengalami perubahan arah ketika dioperasikan oleh suatu transformasi linear. Eigen vector sering kali dihubungkan dengan matriks, dan konsep ini memiliki banyak aplikasi dalam berbagai bidang. Eigen vector (v) dari suatu matriks (A) dan nilai eigen (λ) didefinisikan oleh persamaan berikut:
 $<span class="math notranslate nohighlight">\( A v = \lambda v \)</span>$
 Keterangan :</p>
@@ -3818,7 +3919,8 @@ $<span class="math notranslate nohighlight">\( (A - \lambda I) v = 0 \)</span>$<
 $<span class="math notranslate nohighlight">\( \det(A - \lambda I) = 0 \)</span>$</p>
 <p>Eigen vector yang sesuai dengan setiap nilai eigen dapat ditemukan dengan menggantikan nilai eigen λλ ke dalam persamaan:
 $<span class="math notranslate nohighlight">\( (A - \lambda I) v = 0 \)</span>$</p>
-<p>##11.1. Eigen Vector tanpa preprocessing</p>
+<section id="eigen-vector-tanpa-preprocessing">
+<h2>11.1. Eigen Vector tanpa preprocessing<a class="headerlink" href="#eigen-vector-tanpa-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung closeness centrality</span>
@@ -4146,7 +4248,9 @@ Node 8: &quot;Muara itulah muara demokrasi yang hari ini kita idam-idamkan dan t
 </div>
 </div>
 </div>
-<p>##11.1. Eigen Vector dengan preprocessing</p>
+</section>
+<section id="eigen-vector-dengan-preprocessing">
+<h2>11.2. Eigen Vector dengan preprocessing<a class="headerlink" href="#eigen-vector-dengan-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung closeness centrality</span>
@@ -4475,6 +4579,7 @@ Node 2: Ganjar menuturkan, masyarakat seharusnya mendapat kebahagiaan dalam pros
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -4521,6 +4626,56 @@ Node 2: Ganjar menuturkan, masyarakat seharusnya mendapat kebahagiaan dalam pros
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Meringkas Berita Kompas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#library-yang-dibutuhakan">1. Library Yang Dibutuhakan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data-berita-kompas">2. Import Data Berita Kompas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengakses-berita">3. Mengakses Berita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">4. Preprocessing Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-kalimat">5. Ekstraksi kalimat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">6. TF-IDF</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-tanpa-preprocessing">6.1. TF-IDF tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-dengan-preprocessing">6.2. TF-IDF dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">7. Cosine Similarity</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity-tanpa-preprocessing">7.1. Cosine Similarity tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity-dengan-preprocessing">7.2. Cosine Similarity dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">8. Graph</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-tanpa-preprocessing">8.1. Graph tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-dengan-preprocessing">8.2. Graph dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">9. Closeness Centrality</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality-tanpa-preprocessing">9.1. Closeness centrality tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality-dengan-preprocessing">9.2. Closeness centrality dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#page-rank">10. Page Rank</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-rank-tanpa-preprocessing">10.1. Page rank tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-rank-dengan-preprocessing">10.2. Page rank dengan preprocessing</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eigen-vector">11. Eigen Vector</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigen-vector-tanpa-preprocessing">11.1. Eigen Vector tanpa preprocessing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigen-vector-dengan-preprocessing">11.2. Eigen Vector dengan preprocessing</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

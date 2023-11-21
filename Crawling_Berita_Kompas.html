@@ -169,7 +169,20 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawling Berita Kompas</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="Meringkas_Berita_Kompas.html">Meringkas Berita Kompas</a></li>
+
+
+
+
+
+
+
+
+
+
+
 </ul>
 
     </div>
@@ -340,7 +353,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -356,6 +371,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawling Berita Kompas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#library-yang-dibutuhkan">1. Library Yang Dibutuhkan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Crawling Berita Kompas</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -367,7 +393,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="crawling-berita-kompas">
 <h1>Crawling Berita Kompas<a class="headerlink" href="#crawling-berita-kompas" title="Permalink to this heading">#</a></h1>
-<p>#1. Library Yang Dibutuhkan</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="library-yang-dibutuhkan">
+<h1>1. Library Yang Dibutuhkan<a class="headerlink" href="#library-yang-dibutuhkan" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">soup</span>
@@ -377,7 +405,9 @@ document.write(`
 </div>
 </div>
 </div>
-<p>#2. Crawling Berita Kompas</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>2. Crawling Berita Kompas<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>Crawling data atau web crawling adalah proses ekstraksi informasi dari situs web dengan menggunakan program komputer. Tujuan utama dari web crawling adalah untuk mengumpulkan data dari berbagai sumber di internet.
 Terdapat berbagai macam library yang dapat digunakan untuk crawling data. Library yang digunakan untuk crawling berita Kompas yaitu Beautiful Soup dan Requests. Beautiful Soup Digunakan untuk mengekstrak informasi dari HTML dan Request digunakan untuk mengirim permintaan HTTP dan mengakses halaman web.</p>
 <div class="cell docutils container">
@@ -477,6 +507,23 @@ Terdapat berbagai macam library yang dapat digunakan untuk crawling data. Librar
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawling Berita Kompas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#library-yang-dibutuhkan">1. Library Yang Dibutuhkan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2. Crawling Berita Kompas</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
