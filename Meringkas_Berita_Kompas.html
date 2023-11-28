@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -140,6 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
@@ -148,14 +149,8 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-    
-    
-      
-    
-    
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
   
+    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -337,6 +332,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -346,6 +342,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -427,9 +424,23 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="meringkas-berita-kompas">
 <h1>Meringkas Berita Kompas<a class="headerlink" href="#meringkas-berita-kompas" title="Permalink to this heading">#</a></h1>
+<p>Meringkas berita adalah proses menyajikan informasi utama dari sebuah berita secara singkat dan padat. Meringkas berita dilakukan dengan beberapa tahapan. Tahapan yang harus dilakukan adalah sebagai berikut :</p>
+<ol class="arabic simple">
+<li><p>Menyiapkan data berita yang sudah didapatkan melalui proses crawling berita atau proses lainnya.</p></li>
+<li><p>Memilih satu berita untuk diringkas.</p></li>
+<li><p>Berita yang dipilih akan dilakukan preprocessing data. Preprocessing yang dilakukan yaitu mengahapus angka dari data, menghilangkan karakter non-alphanumerik kecuali spasi dan titik, dan menghapus kata-kata umum (stopwords). Tahapan ini boleh dilakukan atau tidak dilakukan.</p></li>
+<li><p>Melakukan ekstraksi kalimat yang ada di dalam dari berita.</p></li>
+<li><p>Menghitung TF-IDF kata berdasarkan kalimat yang sudah diekstraki sebelumnya.</p></li>
+<li><p>Menghitung Cosine Similarity untuk mengetahui kemiripan antara kalimat satu dengan kalimat lainnya.</p></li>
+<li><p>Membuat graph berdasarkan Cosine Similarity. Graph akan menampilkan garis yang menunjukkan kemiripan antar kalimat. Kalimat akan dilambangkan dengan node.</p></li>
+<li><p>Menghitung Closeness Centrality berdasarkan graph yang sudah dibuat. Closeness Centrality akan mengukur seberapa dekat suatu node dengan semua node lainnya dalam suatu graph. Ringkasan berita dapat dihasilkan dengan mengambil beberapa kalimat yang memiliki nilai Closeness Centrality tertinggi.</p></li>
+<li><p>Ringkasan berita juga dapat dihasilkan dengan menghitung Page Rank. Beberapa kalimat yang memiliki nilai Page Rank tertinggi dapat diambil untuk menjadi ringkasan berita.</p></li>
+<li><p>Ringkasan berita juga dapat dihasilkan dengan menghitung Eigen Vector. Beberapa kalimat yang memiliki nilai Eigen Vector tertinggi dapat diambil untuk menjadi ringkasan berita.</p></li>
+</ol>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="library-yang-dibutuhakan">
 <h1>1. Library Yang Dibutuhakan<a class="headerlink" href="#library-yang-dibutuhakan" title="Permalink to this heading">#</a></h1>
+<p>Library yang dibutuhkan yaitu pandas untuk dataframe. Library nltk dan re untuk preprocessing. Library sklearn untuk menghitung TF-IDF dan cosine similarity. Library networkx untuk membuat graph dan menghitung Closeness centrality. Libraray matplotlib untuk menampilkan graph</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -475,55 +486,173 @@ document.write(`
 <p>Data yang digunakan merupakan data berita kompas yang sudah dicrawling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
-
-<span class="n">csv_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/My Drive/Penweb/data_berita.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">csv_path</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/ach-Ilhamf/data_csv/main/data_berita.csv&#39;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-3-5891d9301a2d&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">csv_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/My Drive/Penweb/data_berita.csv&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
+<div class="output text_html">
+  <div id="df-748cdbc0-6c63-40d0-bdc0-a8708d0bf75a" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, readonly)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="o">=</span><span class="mi">120000</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span><span class="w">   </span><span class="sd">&quot;&quot;&quot;Mount your Google Drive at the specified mountpoint path.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">103</span>   <span class="k">return</span> <span class="n">_mount</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">mountpoint</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral, readonly)</span>
-<span class="g g-Whitespace">    </span><span class="mi">130</span>   <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">131</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">132</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">133</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
-<span class="g g-Whitespace">    </span><span class="mi">174</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">175</span>   <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">176</span>   <span class="k">return</span> <span class="n">read_reply_from_input</span><span class="p">(</span><span class="n">request_id</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">read_reply_from_input</span><span class="nt">(message_id, timeout_sec)</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">reply</span> <span class="o">=</span> <span class="n">_read_next_input_message</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">_NOT_READY</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">96</span>       <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>       <span class="k">continue</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="k">if</span> <span class="p">(</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Judul</th>
+      <th>Berita</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Dapat Nomor Urut 3, Ganjar: Persatuan Indonesia</td>
+      <td>Menurut dia, semangat persatuan Indonesia itu...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Prabowo: Kalau Pemilu Curang, Mengkhianati Ban...</td>
+      <td>JAKARTA, KOMPAS.com - Calon presiden (capres) ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Nestle Indonesia PHK 126 Karyawan di Pabrik Ja...</td>
+      <td>JAKARTA, KOMPAS.com - PT Nestle Indonesia mela...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Lirik dan Chord Lagu I Tried to Leave You - Le...</td>
+      <td>Lagu bergenre pop tersebut dirilis pada 1988 m...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Lirik Lagu Another Life, Lagu Baru dari PinkPa...</td>
+      <td>Di lagu ini ia berkolaborasi dengan penyanyi a...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Penderita Diabetes Tetap Sehat dengan Menerapk...</td>
+      <td>Sebagai informasi, penyakit diabetes terbagi d...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Jalan Tol Akses Stasiun Kereta Cepat Whoosh Ka...</td>
+      <td>JAKARTA, KOMPAS.com - Kementerian Pekerjaan Um...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Penyedap Rasa Sintetis: Pengertian dan Contohnya</td>
+      <td>KOMPAS.com – Penyedap rasa adalah salah satu b...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Gibran: Kalau Ada Kecurangan Pemilu 2024, Sila...</td>
+      <td>Menurut dia, jika terjadi kecurangan di Pemil...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Tak Ajak Relawan ke KPU Saat Ambil Nomor Urut,...</td>
+      <td>JAKARTA, KOMPAS.com - Calon presiden (capres) ...</td>
+    </tr>
+  </tbody>
+</table>
 </div>
-</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-748cdbc0-6c63-40d0-bdc0-a8708d0bf75a')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-748cdbc0-6c63-40d0-bdc0-a8708d0bf75a button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-748cdbc0-6c63-40d0-bdc0-a8708d0bf75a');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="mengakses-berita">
@@ -583,25 +712,38 @@ document.write(`
 <p>TF-IDF (Term Frequency-Inverse Document Frequency) adalah metode pengukuran yang digunakan untuk menilai seberapa penting suatu kata dalam suatu dokumen jika dibandingkan dengan keseleruhan dokumen. Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut memiliki relevansi yang lebih besar terhadap dokumen tersebut.
 Berikut rumus-rumus untuk menghasilkan TF-IDF :</p>
 <ol class="arabic simple">
-<li><p>Term Frequency (TF) : Mewakili seberapa sering sebuah kata muncul dalam suatu dokumen. Ini dihitung dengan membagi jumlah kemunculan kata tersebut dengan total jumlah kata dalam dokumen. Rumus TF :
-$<span class="math notranslate nohighlight">\( \mathrm{TF}(t, d) = \frac{\text{total jumlah kata dalam dokumen } d}{\text{jumlah kemunculan kata } t \text{ dalam dokumen } d}
-\)</span>$
-Keterangan :</p></li>
+<li><p>Term Frequency (TF) : Mewakili seberapa sering sebuah kata muncul dalam suatu dokumen. Ini dihitung dengan membagi jumlah kemunculan kata tersebut dengan total jumlah kata dalam dokumen. Rumus TF :</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+\text{TF}(t, d) = \frac{T_{d}}{n_{t}}
+\]</div>
+<p>Keterangan :</p>
 <ul class="simple">
-<li><p>t = kata yang dievaluasi</p></li>
-<li><p>d = dokumen.</p></li>
+<li><p>Td = jumlah kemunculan kata t dalam dokumen d.</p></li>
+<li><p>nt = total kemunculan kata t dalam seluruh koleksi dokumen.</p></li>
 </ul>
 <ol class="arabic simple" start="2">
-<li><p>Inverse Document Frequency (IDF): Mengukur seberapa jarang kata tersebut muncul di seluruh dokumen. IDF dihitung dengan membagi jumlah total dokumen dengan jumlah dokumen yang mengandung kata tersebut, dan kemudian mengambil logaritma inversinya. Rumus IDF :
-$<span class="math notranslate nohighlight">\( \mathrm{IDF}(t, D) = \log\left(\frac{\text{jumlah dokumen yang mengandung kata } t + 1}{\text{jumlah total dokumen dalam koleksi } D}\right) \)</span>$
-Keterangan :
-D = koleksi dokumen</p></li>
-<li><p>TF-IDF Score: Hasil perkalian dari TF dan IDF untuk menghasilkan skor akhir yang menunjukkan seberapa penting suatu kata dalam suatu dokumen dalam konteks koleksi dokumen. Rumus TF-IDF Score :
-$<span class="math notranslate nohighlight">\( \mathrm{TF\text{-}IDF}(t, d, D) = \mathrm{TF}(t, d) \times \mathrm{IDF}(t, D) \)</span>$
-Keterangan :
-Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dalam suatu dokumen.</p></li>
+<li><p>Inverse Document Frequency (IDF): Mengukur seberapa jarang kata tersebut muncul di seluruh dokumen. IDF dihitung dengan membagi jumlah total dokumen dengan jumlah dokumen yang mengandung kata tersebut, dan kemudian mengambil logaritma inversinya. Rumus IDF :</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+\text{IDF}(t, D) = \log\left(\frac{N_{t} + 1}{N}\right)
+\]</div>
+<p>Keterangan :</p>
+<ul class="simple">
+<li><p>Nt = jumlah dokumen dalam koleksi D yang mengandung kata t.</p></li>
+<li><p>N =  total jumlah dokumen dalam koleksi D.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>TF-IDF Score: Hasil perkalian dari TF dan IDF untuk menghasilkan skor akhir yang menunjukkan seberapa penting suatu kata dalam suatu dokumen dalam konteks koleksi dokumen. Rumus TF-IDF Score :</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{TF\text{-}IDF}(t, d, D) = \mathrm{TF}(t, d) \times \mathrm{IDF}(t, D)
+\]</div>
+<p>Keterangan :
+Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dalam suatu dokumen.</p>
 <section id="tf-idf-tanpa-preprocessing">
 <h2>6.1. TF-IDF tanpa preprocessing<a class="headerlink" href="#tf-idf-tanpa-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -618,7 +760,7 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-35d4562e-50f3-4214-9746-10f4b7552333" class="colab-df-container">
+  <div id="df-e410dd5c-1e24-40dd-b46e-a2166db55ef7" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -906,17 +1048,17 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
 <p>10 rows × 149 columns</p>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-35d4562e-50f3-4214-9746-10f4b7552333')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e410dd5c-1e24-40dd-b46e-a2166db55ef7')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -960,12 +1102,12 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
 
     <script>
       const buttonEl =
-        document.querySelector('#df-35d4562e-50f3-4214-9746-10f4b7552333 button.colab-df-convert');
+        document.querySelector('#df-e410dd5c-1e24-40dd-b46e-a2166db55ef7 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-35d4562e-50f3-4214-9746-10f4b7552333');
+        const element = document.querySelector('#df-e410dd5c-1e24-40dd-b46e-a2166db55ef7');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -983,137 +1125,10 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
       }
     </script>
   </div>
-
-
-<div id="df-bc3af3cb-d79c-45cf-9e74-50cbeb201a26">
-  <button class="colab-df-quickchart" onclick="quickchart('df-bc3af3cb-d79c-45cf-9e74-50cbeb201a26')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-bc3af3cb-d79c-45cf-9e74-50cbeb201a26 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 </section>
 <section id="tf-idf-dengan-preprocessing">
@@ -1132,7 +1147,7 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-624a67d5-e14c-4062-b0cd-556fa8d9c958" class="colab-df-container">
+  <div id="df-19258134-b575-49d3-86d0-66016cb8508b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1420,17 +1435,17 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
 <p>10 rows × 89 columns</p>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-624a67d5-e14c-4062-b0cd-556fa8d9c958')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-19258134-b575-49d3-86d0-66016cb8508b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -1474,12 +1489,12 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
 
     <script>
       const buttonEl =
-        document.querySelector('#df-624a67d5-e14c-4062-b0cd-556fa8d9c958 button.colab-df-convert');
+        document.querySelector('#df-19258134-b575-49d3-86d0-66016cb8508b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-624a67d5-e14c-4062-b0cd-556fa8d9c958');
+        const element = document.querySelector('#df-19258134-b575-49d3-86d0-66016cb8508b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1497,137 +1512,10 @@ Skor TF-IDF yang lebih tinggi menunjukkan bahwa kata tersebut lebih penting dala
       }
     </script>
   </div>
-
-
-<div id="df-72acb46c-1a7a-4078-83c5-52f083508bf1">
-  <button class="colab-df-quickchart" onclick="quickchart('df-72acb46c-1a7a-4078-83c5-52f083508bf1')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-72acb46c-1a7a-4078-83c5-52f083508bf1 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 </section>
 </section>
@@ -1639,11 +1527,13 @@ Langkah-langkah untuk menghitung Cosine Similarity antara dua vektor (A dan B) :
 <li><p>Representasi Vektor
 Representasikan dokumen atau kata-kata sebagai vektor di ruang berdimensi N, di mana N adalah jumlah kata unik dalam kedua dokumen.</p></li>
 <li><p>Menghitung dot product
-Menghitung dot product dari dua vektor, yaitu hasil dari perkalian elemen-elemen vektor yang sesuai. Rumusnya :
-$<span class="math notranslate nohighlight">\( \text{Dot Product}(A, B) = A \cdot B = \sum_{i=1}^{N} A_i \times B_i
-\)</span>$
-Keterangan :</p></li>
+Menghitung dot product dari dua vektor, yaitu hasil dari perkalian elemen-elemen vektor yang sesuai. Rumusnya :</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+\text{Dot Product}(A, B) = A \cdot B = \sum_{i=1}^{N} A_i \times B_i
+\]</div>
+<p>Keterangan :</p>
 <ul class="simple">
 <li><p>A dam B = vektor.</p></li>
 <li><p>Ai dan Bi = komponen ke-i dari vektor A dan B masing-masing.</p></li>
@@ -1651,14 +1541,25 @@ Keterangan :</p></li>
 </ul>
 <ol class="arabic simple" start="3">
 <li><p>Menghitung Magnitudo (Norm)
-Magnitudo norm, yang sering disebut sebagai norm atau panjang vektor, adalah suatu nilai yang mengukur “besarnya” atau “panjangnya” suatu vektor dalam ruang matematis. Hitung magnitudo (norm) dari masing-masing vektor. Rumusnya :
-$<span class="math notranslate nohighlight">\( \| A \| = \sqrt{\sum_{i=1}^{N} A_i^2} \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( \| B \| = \sqrt{\sum_{i=1}^{N} B_i^2} \)</span>$</p></li>
-<li><p>Menghitung Cosine Similarity:
-Rumusnya :
-$<span class="math notranslate nohighlight">\( \text{Cosine Similarity}(A, B) = \frac{\| A \| \times \| B \|}{\text{Dot Product}(A, B)} \)</span>$
-Keterangan :</p></li>
+Magnitudo norm, yang sering disebut sebagai norm atau panjang vektor, adalah suatu nilai yang mengukur “besarnya” atau “panjangnya” suatu vektor dalam ruang matematis. Hitung magnitudo (norm) dari masing-masing vektor. Rumusnya :</p></li>
 </ol>
+<div class="math notranslate nohighlight">
+\[
+\| A \| = \sqrt{\sum_{i=1}^{N} A_i^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\| B \| = \sqrt{\sum_{i=1}^{N} B_i^2}
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Menghitung Cosine Similarity:
+Rumusnya :</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\text{Cosine Similarity}(A, B) = \frac{\| A \| \times \| B \|}{\text{Dot Product}(A, B)}
+\]</div>
+<p>Keterangan :</p>
 <ul class="simple">
 <li><p>A dan B = vector.</p></li>
 <li><p>||A|| dan ||B|| adalah panjang vector  dari vektor A dan B.</p></li>
@@ -1680,7 +1581,7 @@ Keterangan :</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ffee9a2b-1293-41e9-92ff-7744df2ba461" class="colab-df-container">
+  <div id="df-d4f8f194-becd-42da-8155-b1450005fe99" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1846,17 +1747,17 @@ Keterangan :</p></li>
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ffee9a2b-1293-41e9-92ff-7744df2ba461')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d4f8f194-becd-42da-8155-b1450005fe99')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -1900,12 +1801,12 @@ Keterangan :</p></li>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ffee9a2b-1293-41e9-92ff-7744df2ba461 button.colab-df-convert');
+        document.querySelector('#df-d4f8f194-becd-42da-8155-b1450005fe99 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ffee9a2b-1293-41e9-92ff-7744df2ba461');
+        const element = document.querySelector('#df-d4f8f194-becd-42da-8155-b1450005fe99');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1923,137 +1824,10 @@ Keterangan :</p></li>
       }
     </script>
   </div>
-
-
-<div id="df-bf474048-e25f-4ce1-b4f2-6cc9caf69e26">
-  <button class="colab-df-quickchart" onclick="quickchart('df-bf474048-e25f-4ce1-b4f2-6cc9caf69e26')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-bf474048-e25f-4ce1-b4f2-6cc9caf69e26 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 </section>
 <section id="cosine-similarity-dengan-preprocessing">
@@ -2073,7 +1847,7 @@ Keterangan :</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-105d6898-260c-43b4-9888-8d0d71beed22" class="colab-df-container">
+  <div id="df-e74edf8a-8a53-4976-8e4b-a21c8552247b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2239,17 +2013,17 @@ Keterangan :</p></li>
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-105d6898-260c-43b4-9888-8d0d71beed22')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e74edf8a-8a53-4976-8e4b-a21c8552247b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -2293,12 +2067,12 @@ Keterangan :</p></li>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-105d6898-260c-43b4-9888-8d0d71beed22 button.colab-df-convert');
+        document.querySelector('#df-e74edf8a-8a53-4976-8e4b-a21c8552247b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-105d6898-260c-43b4-9888-8d0d71beed22');
+        const element = document.querySelector('#df-e74edf8a-8a53-4976-8e4b-a21c8552247b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2316,137 +2090,10 @@ Keterangan :</p></li>
       }
     </script>
   </div>
-
-
-<div id="df-b1c71ed8-0ffa-4eab-928f-8a1de7973987">
-  <button class="colab-df-quickchart" onclick="quickchart('df-b1c71ed8-0ffa-4eab-928f-8a1de7973987')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-b1c71ed8-0ffa-4eab-928f-8a1de7973987 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 </section>
 </section>
@@ -2562,9 +2209,12 @@ Graf yang telah dibuat dan diformat visualnya ditampilkan menggunakan plt.show()
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="closeness-centrality">
 <h1>9. Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Permalink to this heading">#</a></h1>
-<p>Closeness Centrality adalah suatu metriks yang mengukur seberapa dekat suatu node dengan semua node lainnya dalam suatu graph. Node dengan closeness centrality yang tinggi dianggap sebagai node yang memiliki akses yang lebih cepat atau lebih efisien ke seluruh bagian jaringan graph. Rumus Closeness Centrality untuk suatu node v dalam sebuah graph terarah atau tidak terarah :
-$<span class="math notranslate nohighlight">\( \text{C}(v) = \sum_{u} \frac{1}{d(v, u)} \)</span>$
-Keterangan :</p>
+<p>Closeness Centrality adalah suatu metriks yang mengukur seberapa dekat suatu node dengan semua node lainnya dalam suatu graph. Node dengan closeness centrality yang tinggi dianggap sebagai node yang memiliki akses yang lebih cepat atau lebih efisien ke seluruh bagian jaringan graph. Rumus Closeness Centrality untuk suatu node v dalam sebuah graph terarah atau tidak terarah :</p>
+<div class="math notranslate nohighlight">
+\[
+\text{C}(v) = \sum_{u} \frac{1}{d(v, u)}
+\]</div>
+<p>Keterangan :</p>
 <ul class="simple">
 <li><p>C(v) = closeness centrality dari node v.</p></li>
 <li><p>d(v,u) = panjang jalur terpendek (jumlah edge) dari node v ke node u.</p></li>
@@ -2591,7 +2241,7 @@ Keterangan :</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-fc75f731-391b-4b02-8d2f-5c654c148ab9" class="colab-df-container">
+  <div id="df-1e581f70-b633-4f8d-8a26-07b1362adb68" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2669,17 +2319,17 @@ Keterangan :</p>
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-fc75f731-391b-4b02-8d2f-5c654c148ab9')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1e581f70-b633-4f8d-8a26-07b1362adb68')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -2723,12 +2373,12 @@ Keterangan :</p>
 
     <script>
       const buttonEl =
-        document.querySelector('#df-fc75f731-391b-4b02-8d2f-5c654c148ab9 button.colab-df-convert');
+        document.querySelector('#df-1e581f70-b633-4f8d-8a26-07b1362adb68 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-fc75f731-391b-4b02-8d2f-5c654c148ab9');
+        const element = document.querySelector('#df-1e581f70-b633-4f8d-8a26-07b1362adb68');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2746,137 +2396,10 @@ Keterangan :</p>
       }
     </script>
   </div>
-
-
-<div id="df-63d09c01-8ebd-4931-97f4-a6644f9bc5d6">
-  <button class="colab-df-quickchart" onclick="quickchart('df-63d09c01-8ebd-4931-97f4-a6644f9bc5d6')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-63d09c01-8ebd-4931-97f4-a6644f9bc5d6 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2921,7 +2444,7 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-837cf630-8ae9-4154-870a-f7d974251988" class="colab-df-container">
+  <div id="df-ecd894ff-21a4-455f-aaed-928400752097" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2999,17 +2522,17 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-837cf630-8ae9-4154-870a-f7d974251988')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ecd894ff-21a4-455f-aaed-928400752097')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -3053,12 +2576,12 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
 
     <script>
       const buttonEl =
-        document.querySelector('#df-837cf630-8ae9-4154-870a-f7d974251988 button.colab-df-convert');
+        document.querySelector('#df-ecd894ff-21a4-455f-aaed-928400752097 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-837cf630-8ae9-4154-870a-f7d974251988');
+        const element = document.querySelector('#df-ecd894ff-21a4-455f-aaed-928400752097');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3076,137 +2599,10 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
       }
     </script>
   </div>
-
-
-<div id="df-9ebef17b-3a45-482d-9c8f-d24ac45fe36c">
-  <button class="colab-df-quickchart" onclick="quickchart('df-9ebef17b-3a45-482d-9c8f-d24ac45fe36c')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-9ebef17b-3a45-482d-9c8f-d24ac45fe36c button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3234,8 +2630,11 @@ Node Node Preprocessing 2: Ganjar menuturkan, masyarakat seharusnya mendapat keb
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="page-rank">
 <h1>10. Page Rank<a class="headerlink" href="#page-rank" title="Permalink to this heading">#</a></h1>
-<p>PageRank adalah suatu metriks dalam yang digunakan untuk menilai pentingnya suatu node dalam suatu graph. Jika N adalah jumlah halaman dalam graf, d adalah faktor damping (0,85), dan M adalah matriks transfer yang mencerminkan tautan antar-halaman, maka rumus PageRank dalam bentuk matriks dapat dituliskan sebagai berikut: :
-$<span class="math notranslate nohighlight">\( \text{PR} = (1 - d) \cdot v + d \cdot \text{MPR} \)</span>$</p>
+<p>PageRank adalah suatu metriks dalam yang digunakan untuk menilai pentingnya suatu node dalam suatu graph. Jika N adalah jumlah halaman dalam graf, d adalah faktor damping (0,85), dan M adalah matriks transfer yang mencerminkan tautan antar-halaman, maka rumus PageRank dalam bentuk matriks dapat dituliskan sebagai berikut: :</p>
+<div class="math notranslate nohighlight">
+\[
+\text{PR} = (1 - d) \cdot v + d \cdot \text{MPR}
+\]</div>
 <p>Keterangan :</p>
 <ul class="simple">
 <li><p>PR = vektor kolom PageRank.</p></li>
@@ -3262,7 +2661,7 @@ $<span class="math notranslate nohighlight">\( \text{PR} = (1 - d) \cdot v + d \
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-712b2b24-9155-44e6-84a1-9919aab56a8f" class="colab-df-container">
+  <div id="df-2a64d850-4eb1-45af-bdb7-1429ef02d801" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3340,17 +2739,17 @@ $<span class="math notranslate nohighlight">\( \text{PR} = (1 - d) \cdot v + d \
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-712b2b24-9155-44e6-84a1-9919aab56a8f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2a64d850-4eb1-45af-bdb7-1429ef02d801')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -3394,12 +2793,12 @@ $<span class="math notranslate nohighlight">\( \text{PR} = (1 - d) \cdot v + d \
 
     <script>
       const buttonEl =
-        document.querySelector('#df-712b2b24-9155-44e6-84a1-9919aab56a8f button.colab-df-convert');
+        document.querySelector('#df-2a64d850-4eb1-45af-bdb7-1429ef02d801 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-712b2b24-9155-44e6-84a1-9919aab56a8f');
+        const element = document.querySelector('#df-2a64d850-4eb1-45af-bdb7-1429ef02d801');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3417,137 +2816,10 @@ $<span class="math notranslate nohighlight">\( \text{PR} = (1 - d) \cdot v + d \
       }
     </script>
   </div>
-
-
-<div id="df-c462371c-f7d2-463c-8dac-d60407af5efc">
-  <button class="colab-df-quickchart" onclick="quickchart('df-c462371c-f7d2-463c-8dac-d60407af5efc')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-c462371c-f7d2-463c-8dac-d60407af5efc button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3592,7 +2864,7 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3c16ce1e-48d3-438b-9ba4-fa1e3a16d378" class="colab-df-container">
+  <div id="df-f3970dcd-a77b-4311-834c-054cdb206184" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3670,17 +2942,17 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-3c16ce1e-48d3-438b-9ba4-fa1e3a16d378')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f3970dcd-a77b-4311-834c-054cdb206184')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -3724,12 +2996,12 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
 
     <script>
       const buttonEl =
-        document.querySelector('#df-3c16ce1e-48d3-438b-9ba4-fa1e3a16d378 button.colab-df-convert');
+        document.querySelector('#df-f3970dcd-a77b-4311-834c-054cdb206184 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-3c16ce1e-48d3-438b-9ba4-fa1e3a16d378');
+        const element = document.querySelector('#df-f3970dcd-a77b-4311-834c-054cdb206184');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3747,137 +3019,10 @@ Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat I
       }
     </script>
   </div>
-
-
-<div id="df-2345285a-f733-44fd-a1b0-f7aa3464cad7">
-  <button class="colab-df-quickchart" onclick="quickchart('df-2345285a-f733-44fd-a1b0-f7aa3464cad7')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-2345285a-f733-44fd-a1b0-f7aa3464cad7 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3905,20 +3050,32 @@ Node 7: &quot;Tapi percayalah, air yang mengalir itu dia akan mengikuti arah bat
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="eigen-vector">
 <h1>11. Eigen Vector<a class="headerlink" href="#eigen-vector" title="Permalink to this heading">#</a></h1>
-<p>Eigen vector pada dasarnya adalah vektor yang tidak mengalami perubahan arah ketika dioperasikan oleh suatu transformasi linear. Eigen vector sering kali dihubungkan dengan matriks, dan konsep ini memiliki banyak aplikasi dalam berbagai bidang. Eigen vector (v) dari suatu matriks (A) dan nilai eigen (λ) didefinisikan oleh persamaan berikut:
-$<span class="math notranslate nohighlight">\( A v = \lambda v \)</span>$
-Keterangan :</p>
+<p>Eigen vector pada dasarnya adalah vektor yang tidak mengalami perubahan arah ketika dioperasikan oleh suatu transformasi linear. Eigen vector sering kali dihubungkan dengan matriks, dan konsep ini memiliki banyak aplikasi dalam berbagai bidang. Eigen vector (v) dari suatu matriks (A) dan nilai eigen (λ) didefinisikan oleh persamaan berikut:</p>
+<div class="math notranslate nohighlight">
+\[
+A v = \lambda v
+\]</div>
+<p>Keterangan :</p>
 <ul class="simple">
 <li><p>A adalah matriks.</p></li>
 <li><p>v adalah eigen vector.</p></li>
 <li><p>λ adalah nilai eigen (skalar).</p></li>
 </ul>
-<p>Persamaan ini dapat diubah menjadi bentuk ekivalen:
-$<span class="math notranslate nohighlight">\( (A - \lambda I) v = 0 \)</span>$</p>
-<p>Untuk matriks AA berukuran nxn, persamaan karakteristik mengambil bentuk:
-$<span class="math notranslate nohighlight">\( \det(A - \lambda I) = 0 \)</span>$</p>
-<p>Eigen vector yang sesuai dengan setiap nilai eigen dapat ditemukan dengan menggantikan nilai eigen λλ ke dalam persamaan:
-$<span class="math notranslate nohighlight">\( (A - \lambda I) v = 0 \)</span>$</p>
+<p>Persamaan ini dapat diubah menjadi bentuk ekivalen:</p>
+<div class="math notranslate nohighlight">
+\[
+(A - \lambda I) v = 0
+\]</div>
+<p>Untuk matriks AA berukuran nxn, persamaan karakteristik mengambil bentuk:</p>
+<div class="math notranslate nohighlight">
+\[
+\det(A - \lambda I) = 0
+\]</div>
+<p>Eigen vector yang sesuai dengan setiap nilai eigen dapat ditemukan dengan menggantikan nilai eigen λλ ke dalam persamaan:</p>
+<div class="math notranslate nohighlight">
+\[
+(A - \lambda I) v = 0
+\]</div>
 <section id="eigen-vector-tanpa-preprocessing">
 <h2>11.1. Eigen Vector tanpa preprocessing<a class="headerlink" href="#eigen-vector-tanpa-preprocessing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -3939,7 +3096,7 @@ $<span class="math notranslate nohighlight">\( (A - \lambda I) v = 0 \)</span>$<
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c5359884-8aea-497c-8f93-713b628e042f" class="colab-df-container">
+  <div id="df-719f7696-1a83-4ad5-aeee-4803e5465ae9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -4017,17 +3174,17 @@ $<span class="math notranslate nohighlight">\( (A - \lambda I) v = 0 \)</span>$<
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c5359884-8aea-497c-8f93-713b628e042f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-719f7696-1a83-4ad5-aeee-4803e5465ae9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -4071,12 +3228,12 @@ $<span class="math notranslate nohighlight">\( (A - \lambda I) v = 0 \)</span>$<
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c5359884-8aea-497c-8f93-713b628e042f button.colab-df-convert');
+        document.querySelector('#df-719f7696-1a83-4ad5-aeee-4803e5465ae9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c5359884-8aea-497c-8f93-713b628e042f');
+        const element = document.querySelector('#df-719f7696-1a83-4ad5-aeee-4803e5465ae9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -4094,137 +3251,10 @@ $<span class="math notranslate nohighlight">\( (A - \lambda I) v = 0 \)</span>$<
       }
     </script>
   </div>
-
-
-<div id="df-cce851f9-d1f7-44b6-b344-a3311099144f">
-  <button class="colab-df-quickchart" onclick="quickchart('df-cce851f9-d1f7-44b6-b344-a3311099144f')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-cce851f9-d1f7-44b6-b344-a3311099144f button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4269,7 +3299,7 @@ Node 8: &quot;Muara itulah muara demokrasi yang hari ini kita idam-idamkan dan t
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5b7ed117-45d2-4953-8af7-38d498ea36c8" class="colab-df-container">
+  <div id="df-1033d595-2256-4525-9760-a90fc6da9664" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -4347,17 +3377,17 @@ Node 8: &quot;Muara itulah muara demokrasi yang hari ini kita idam-idamkan dan t
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5b7ed117-45d2-4953-8af7-38d498ea36c8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1033d595-2256-4525-9760-a90fc6da9664')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -4401,12 +3431,12 @@ Node 8: &quot;Muara itulah muara demokrasi yang hari ini kita idam-idamkan dan t
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5b7ed117-45d2-4953-8af7-38d498ea36c8 button.colab-df-convert');
+        document.querySelector('#df-1033d595-2256-4525-9760-a90fc6da9664 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5b7ed117-45d2-4953-8af7-38d498ea36c8');
+        const element = document.querySelector('#df-1033d595-2256-4525-9760-a90fc6da9664');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -4424,137 +3454,10 @@ Node 8: &quot;Muara itulah muara demokrasi yang hari ini kita idam-idamkan dan t
       }
     </script>
   </div>
-
-
-<div id="df-71403540-005b-486e-8130-93dd12125ae8">
-  <button class="colab-df-quickchart" onclick="quickchart('df-71403540-005b-486e-8130-93dd12125ae8')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-71403540-005b-486e-8130-93dd12125ae8 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4572,7 +3475,9 @@ Node 8: &quot;Muara itulah muara demokrasi yang hari ini kita idam-idamkan dan t
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Node 1: &quot;Jadi kita mendapatkan nomor 3 itu pas, sesuai dengan sila ketiga &#39;Persatuan Indonesia&#39;, kita satukan semuanya dalam proses politik yang menggembirakan,&quot; kata Ganjar dalam acara pengundian nomor urut di Kantor KPU, Jakarta, Selasa (14/11/2023).
-Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat Indonesia tidak terpecah belah akibat proses Pemilihan Umum (Pemilu 2024).
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Node 0:  Menurut dia, semangat persatuan Indonesia itu penting agar masyarakat Indonesia tidak terpecah belah akibat proses Pemilihan Umum (Pemilu 2024).
 Node 2: Ganjar menuturkan, masyarakat seharusnya mendapat kebahagiaan dalam proses pelaksanaan pemilu.
 </pre></div>
 </div>
@@ -4609,7 +3514,7 @@ Node 2: Ganjar menuturkan, masyarakat seharusnya mendapat kebahagiaan dalam pros
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="Crawling_Berita_Kompas.html"
@@ -4693,6 +3598,7 @@ By The Jupyter Book Community
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -4719,8 +3625,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
