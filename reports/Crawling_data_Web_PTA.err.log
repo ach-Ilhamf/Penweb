@@ -30,7 +30,7 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['#Dictionary untuk menyimpan data hasil crawling', 'csv = {"Judul": [], "Penulis": [], "Pembimbing I": [], "Pembimbing II": [], "Abstrak": []}', '', '#Perulangan untuk mengakses web dari halaman 1 sampai halaman 116', 'for i in range (1,117):']
+['#Dictionary untuk menyimpan data hasil crawling', 'csv = {"Judul": [], "Penulis": [], "Pembimbing I": [], "Pembimbing II": [], "Abstrak": []}', '', '#Perulangan untuk mengakses web dari halaman 1 sampai halaman 116', 'for i in range (1,10):']
 ...
 ['      csv["Abstrak"].append(abstrak)', '', '#Menyimpan data yang ada pada dictionary ke dalam file csv', '      data = pd.DataFrame(csv)', '      data.to_csv("data_pta.csv",index=False)']
 -------------------
